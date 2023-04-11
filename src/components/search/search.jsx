@@ -11,10 +11,17 @@ const Search = ({ onSearchChange }) => {
       geoApiOptions
     )
       .then((response) => response.json())
-      .then((response) => console.log(response))
-      .catch((err) => console.error(err));
+      .then((response) => {
+        return {
+          options: response.data.map((city) => {
+            return {
+              value: `${city.latitude} ${city.longitude}`,
+              label: `${city.name}, ${city.countryCode}`,
+            };
+          }),
+        };
+      });
   };
-
   const handleOnChange = (searchData) => {
     setSearch(searchData);
     onSearchChange(searchData);
