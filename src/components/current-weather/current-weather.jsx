@@ -1,6 +1,7 @@
+import React from "react";
 import "./current-weather.css";
 
-const CurrentWeather = () => {
+const CurrentWeather = ({ data }) => {
   return (
     <div className="weather">
       <div className="top">
@@ -9,9 +10,9 @@ const CurrentWeather = () => {
           <p className="weather-description">{data.weather[0].description}</p>
         </div>
         <img
-          src={`icons/${data.weather[0].icon}.png`}
           alt="weather"
           className="weather-icon"
+          src={`icons/${data.weather[0].icon}.png`}
         />
       </div>
       <div className="bottom">
@@ -43,4 +44,5 @@ const CurrentWeather = () => {
     </div>
   );
 };
+
 export default CurrentWeather;
