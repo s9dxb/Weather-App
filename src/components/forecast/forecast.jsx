@@ -2,10 +2,21 @@ import React from "react";
 import {
   Accordion,
   AccordionItem,
+  AccordionItemHeading,
   AccordionItemButton,
   AccordionItemPanel,
 } from "react-accessible-accordion";
-import { AccordionItemHeading } from "react-accessible-accordion/dist/types/components/AccordionItemHeading";
+import "./forecast.css";
+
+const WEEK_DAYS = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
 
 const Forecast = ({ data }) => {
   const dayInAWeek = new Date().getDay();
@@ -20,7 +31,6 @@ const Forecast = ({ data }) => {
           <AccordionItem key={idx}>
             <AccordionItemHeading>
               <AccordionItemButton>
-                {" "}
                 <div className="daily-item">
                   <img
                     src={`icons/${item.weather[0].icon}.png`}
@@ -39,7 +49,6 @@ const Forecast = ({ data }) => {
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
-              {" "}
               <div className="daily-details-grid">
                 <div className="daily-details-grid-item">
                   <label>Pressure:</label>
@@ -69,7 +78,6 @@ const Forecast = ({ data }) => {
             </AccordionItemPanel>
           </AccordionItem>
         ))}
-        <AccordionItem></AccordionItem>
       </Accordion>
     </>
   );
